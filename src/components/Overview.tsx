@@ -4,7 +4,13 @@ import ITaskProp from "../interfaces/ITaskProp";
 function Overview(props: ITaskProp) {
   const { tasks } = props;
 
-  return <div></div>;
+  const elements = tasks.map((task) => <li>{task}</li>);
+
+  return (
+    <>
+      <ul>{elements}</ul>
+    </>
+  );
 }
 
 export default Overview;

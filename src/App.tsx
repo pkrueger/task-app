@@ -8,6 +8,7 @@ function App() {
   function handleSubmit(event: any) {
     event.preventDefault();
     setAllTasks((prevAllTasks) => [...prevAllTasks, newTask]);
+    setNewTask("");
   }
 
   function handleChange(event: any) {
