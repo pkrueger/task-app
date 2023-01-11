@@ -1,10 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import Overview from "./components/Overview";
 
 function App() {
   const [allTasks, setAllTasks] = useState<string[]>([]);
   const [newTask, setNewTask] = useState("");
 
-  function handleSubmit() {}
+  function handleSubmit(event: any) {
+    event.preventDefault();
+    setAllTasks((prevAllTasks) => [...prevAllTasks, newTask]);
+  }
+
+  function handleChange(event: any) {
+    setNewTask(event.target.value);
+  }
 
   return (
     <div>
@@ -18,6 +26,7 @@ function App() {
         />
         <button>Add Task</button>
       </form>
+      <Overview tasks={allTasks} />
     </div>
   );
 }
